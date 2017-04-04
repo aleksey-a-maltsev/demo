@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Plugins with "fromText" bug</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+    <script src="require.js"></script>
+    <script>
+        require.config({
+            paths: {
+                text: 'plugins/text',
+                xhtml: 'plugins/xhtml',
+                tmpl: 'plugins/tmpl'
+            }
+        });
+
+        require(['tmpl!foo/bar'], function (bar) {
+            console.log(bar)
+        });
+
+        setTimeout(function() {
+            require(['xhtml!foo/bar'], function (bar) {
+                console.log(bar)
+            });
+        }, 1000);
+    </script>
+</body>
+</html>
