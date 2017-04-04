@@ -5,8 +5,8 @@
       return {
          load: function(name, require, load, conf) {
             try {
-               var onLoad = function(text) {
-                  load.fromText(text);
+               var onLoad = function(data) {
+                  load.fromText(data);
                };
                onLoad.error = function(e) {
                   load.error(e);
